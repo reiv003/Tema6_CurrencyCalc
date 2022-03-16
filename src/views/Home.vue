@@ -1,13 +1,14 @@
 <template>
-	<Sample />
+	<h1>Valutakalkulator</h1>
+	<Calculator />
 </template>
 
 <script>
-	import Sample from "../components/Sample.vue";
+	import Calculator from "../components/Calculator.vue";
 
 	export default {
 		components: {
-			Sample,
+			Calculator,
 		}
 	};
 </script>
