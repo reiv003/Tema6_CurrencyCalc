@@ -1,7 +1,8 @@
 <template>
-	<div>{{ baseCurrency }}</div>
-	<div>{{ secondCurrency }}</div>
-	<button v-on:click="fetchNew">Get new</button>
+	<div>{{ baseCurrencyAmount }}</div>
+	<!-- <div> {{ getCurrency.eur }} </div> -->
+	<div>{{ secondCurrencyAmount }}</div>
+	<button v-on:click="selectCurrency">Get new</button>
 	<div>{{ allCurrencies }}</div>
 </template>
 
@@ -9,8 +10,9 @@
 	export default {
 		data() {
 			return {
-				baseCurrency: '',
-				secondCurrency: '',
+				currency: 'algo',
+				baseCurrencyAmount: null,
+				secondCurrencyAmount: null,
 				allCurrencies: ''
 
 			}
@@ -19,15 +21,31 @@
 			this.fetchNew();
 		},
 
+		// computed: {
+		// 	getCurrency() {
+		// 		return this.currency = Object.keys(this.data)[1];
+		// 	}
+		// },
+
 		methods: {
 			async fetchNew() {
-				const url = 'https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur.json';
+				let url = `https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/${this.currency}.json`;
 				const res = await fetch(url);
-				const { eur } = await res.json();
-				console.log(eur);
-				this.baseCurrency = eur.eur;
-				this.secondCurrency = eur.ada;
-				this.allCurrencies = eur;
+				const data = await res.json();
+				console.log(data);
+				this.currency = Object.keys(data)[1];
+				console.log(res);
+				// this.baseCurrencyAmount = Object.values(data)[1];
+				this.baseCurrencyAmount = data.algo.algo;
+				this.secondCurrencyAmount = data.algo.eur;
+				this.allCurrencies = Object.keys(data.algo);
+				// console.log(data["1inch"].ada);
+    			// console.log(Object.keys(data.eur));
+			},
+
+			selectCurrency() {
+				this.currency = 'eur';
+				console.log(this.currency);
 			}
 
 
