@@ -1,3 +1,8 @@
 :root {
-	--sample-variable: 0.5em;
+	--general-spacing: 0.5em;
+	--background-color: #F2F0E9;
+	--main-text-color: #363038;
+	--accent-color: #65427B;
+	--detail-color: #5F5C59;
+
 }

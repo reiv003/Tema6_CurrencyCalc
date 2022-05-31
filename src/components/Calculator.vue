@@ -1,16 +1,18 @@
 <template>
-	<div>{{ baseCurrencyAmount }}</div>
-	<!-- <div> {{ getCurrency.eur }} </div> -->
-	<div>{{ secondCurrencyAmount }}</div>
-	<button v-on:click="selectCurrency">Get new</button>
-	<div>{{ allCurrencies }}</div>
+	<div class="content">
+		<div>{{ baseCurrencyAmount }}</div>
+		<!-- <div> {{ getCurrency.eur }} </div> -->
+		<div>{{ secondCurrencyAmount }}</div>
+		<button v-on:click="selectCurrency">Get new</button>
+		<div>{{ allCurrencies }}</div>
+	</div>
 </template>
 
 <script>
 	export default {
 		data() {
 			return {
-				currency: 'algo',
+				currency: 'nok',
 				baseCurrencyAmount: null,
 				secondCurrencyAmount: null,
 				allCurrencies: ''
@@ -36,9 +38,9 @@
 				this.currency = Object.keys(data)[1];
 				console.log(res);
 				// this.baseCurrencyAmount = Object.values(data)[1];
-				this.baseCurrencyAmount = data.algo.algo;
-				this.secondCurrencyAmount = data.algo.eur;
-				this.allCurrencies = Object.keys(data.algo);
+				this.baseCurrencyAmount = data.nok.nok;
+				this.secondCurrencyAmount = data.nok.eur;
+				this.allCurrencies = Object.keys(data.nok);
 				// console.log(data["1inch"].ada);
     			// console.log(Object.keys(data.eur));
 			},
