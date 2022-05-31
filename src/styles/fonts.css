@@ -1,8 +1,20 @@
-/*
 @font-face {
-	font-family: Arial;
-	src: url('/assets/fonts/Arial.ttf');
+	font-family: PoiretOne;
+	src: url('/assets/fonts/PoiretOne-Regular.ttf');
 	font-weight: normal;
 	font-style: normal;
 }
-*/
+
+@font-face {
+	font-family: Sora;
+	src: url('/assets/fonts/Sora-Regular.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: SoraThin;
+	src: url('/assets/fonts/Sora-Thin.ttf');
+	font-weight: normal;
+	font-style: normal;
+}
