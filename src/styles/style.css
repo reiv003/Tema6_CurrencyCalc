@@ -1,3 +1,36 @@
-body {
-	background-color: aliceblue;
+#container {
+	background-color: var(--background-color);
+	width: 100vw;
+	height: 100vh;
+	font-family: "Sora";
+	font-size: 24px;
+	color: var(--main-text-color);
+	display: grid;
+	grid-template-columns: repeat(12, 1fr);
+}
+
+h1 {
+	font-family: "PoiretOne";
+	font-size: 2em;
+}
+
+header {
+	grid-column: 2 / span 10;
+	text-align: center;
+	border-bottom: 2px dashed var(--accent-color);
+}
+
+footer {
+	grid-column: 1 / span 12;
+	text-align: center;
+}
+
+.content {
+	grid-column: 2 / span 10;
+}
+
+button {
+	padding: 0.1em;
+	border: 1px solid var(--detail-color);
+	border-radius: 6px;
 }
