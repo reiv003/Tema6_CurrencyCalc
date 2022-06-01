@@ -1,6 +1,6 @@
 <template>
 	<header>
-		<RouterLink :to="'/'"><h1 aria-label="Hjem">Valutakalkulator</h1></RouterLink>
+		<div>Siden fins ikke.</div>
 	</header>
 </template>
 
