@@ -34,3 +34,7 @@ button {
 	border: 1px solid var(--detail-color);
 	border-radius: 6px;
 }
+
+a:hover {
+	text-decoration: underline;
+}
