@@ -1,9 +1,9 @@
 <template>
 	<div class="content">
 		<div>{{ baseCurrencyAmount }}</div>
-		<!-- <div> {{ getCurrency.eur }} </div> -->
 		<div>{{ secondCurrencyAmount }}</div>
 		<button v-on:click="selectCurrency">Get new</button>
+		<!-- This was intended to be used for the dropdown select, but I could not get it to work (the simpler version with just a button).  -->
 		<div>{{ allCurrencies }}</div>
 	</div>
 </template>
@@ -37,62 +37,18 @@
 				console.log(data);
 				this.currency = Object.keys(data)[1];
 				console.log(res);
-				// this.baseCurrencyAmount = Object.values(data)[1];
+				/* I could not get the currency to change in the UI, but if the currency is changed here (ie to data.nok.usd, etc) it is reflected on the site. */
 				this.baseCurrencyAmount = data.nok.nok;
 				this.secondCurrencyAmount = data.nok.eur;
 				this.allCurrencies = Object.keys(data.nok);
-				// console.log(data["1inch"].ada);
-    			// console.log(Object.keys(data.eur));
 			},
+
+			/* This was meant to be the method that the user select a currency from the dropdown. To test/start with I just made it change the value to a different currency, but the new conversion is not reflected in the view. The computed value was also an attempt at this. */
 
 			selectCurrency() {
 				this.currency = 'eur';
 				console.log(this.currency);
 			}
-
-
-
-
-
-			// handleData(data) {
-			// 	console.log(data);
-			// 	console.log(data["1inch"].ada);
-			// 	console.log(Object.keys(data.eur));
-			// },
-
-			// handleError(status) {
-			// 	if (status === 404) {
-			// 		console.log("Valuta ikke funnet/verdi ikke gyldig");
-			// 	}
-			// 	if (status === 401) {
-			// 		console.log("Ingen tilgang");
-			// 	}
-			// 	if (status === 500) {
-			// 		console.log("Server er ikke tilgjengelig");
-			// 	}
-			// },
-			
-			// async getData() {
-			// 	const fetchUrl='https://cdn.jsdelivr.net/gh/fawazahmed0/currency-api@1/latest/currencies/eur.json';
-			// 	const options={
-			// 		method: 'GET'
-			// 	};
-
-			// 	try {
-			// 		const response = await fetch(fetchUrl, options);
-			// 		const data = await response.json();
-
-			// 		if(response.status!=200) {
-			// 			handleError(response.status);
-			// 		} else {
-			// 			handleData(data);
-			// 		}
-
-			// 	} catch(error) {
-			// 		console.log('Det oppstod en feil');
-			// 		return 'Det oppstod en feil';
-			// 	}
-      	// }
 		}
 	}
 </script>
